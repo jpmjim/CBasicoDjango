@@ -49,3 +49,17 @@ Curso Básico de Django
     # revisamos la creación con
     ls
     ```
+
+## Explorando los archivos que creó Django
+  La diferenciación de las dos carpetas: 
+    - La primera carpeta **cbasicodjangoapp** es la contenedora de archivos del proyecto, y no tiene vinculación con Django sin causar ningun efecto.
+    - La segunda carpeta la que esta por debajo ***cbasicodjangoapp*** si tiene vinculación con Django, es un paquete de python conteniendo todos los archivos que afectan al proyecto internamente.
+
+  Archivos primera carpeta:
+  - **manage.py** nos muestra una lista de comandos disponibles para que el proyecto funcione.
+
+  Archivos segunda carpeta:
+  - **__init__.py** indica que es un paquete.
+  - **asgi.py** y **wsgi.py** es un conjunto de archivos que nos sirve para hacer el deploy el despliegue de nuestra app.
+  - **settings.py** es un archivo que contiene toda la información de la configuración del proyecto, (la zona horaria, el lenguaje, las apss internas dentro del proyecto, la base de datos que usamos).
+  - **urls.py** es el archivo donde vamos a trabajar las rutas del proyecto, (viene uno ya definido llamado ***admin***).

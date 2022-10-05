@@ -195,7 +195,7 @@ Curso Básico de Django
     pub_date------------datetime (fecha de publicacion)
   ```
   - En el modelo entidad relación cuando tenemos atributos(columnas) relacionados entre modelos(tablas). Se le colocas FK junto al nombre del atributo en el modelo(tabla) en que está relacionando. Esto significa Llave foránea. No ayuda a identificar las columnas relacionadas al momento de pasarlo a código.
-  
+
   - La tabla **choices** sus atributos.
   ```bash
     id -------------- int
@@ -221,3 +221,45 @@ Curso Básico de Django
   }
   ```
   ![](https://static.platzi.com/media/user_upload/PremiosPlatzi-588f66d0-82e2-461f-a3e6-53a2232bfd14.jpg)
+
+## Creando los modelos Question y Choice
+  Dentro del archivo de **models.py** que se encuentra en la aplicación de ***polls***.
+  
+  Las tablas se equivalen a modelos o clases en un archivo de python, nuestro archivo de models vendria hacer la base de datos.
+  ```python
+  # nuestros modelos
+  class Question(models.Model):
+    # Atributos
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField("date published")
+
+  class Choices(models.Model):
+    # Atributos
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+  ```
+
+  Dentro de Django genera la **llave primaria** con el modificador de autoincrementar, lo cual no necesitamos crear o añadir el id.
+
+  Nos movemos al archivo de **settings.py** donde añadiremos la aplicación de ***polls***.
+  ```python
+  INSTALLED_APPS = [
+    #aplicación creadas
+    "polls.apps.PollsConfig",
+    #aplicaciones nativas de django 
+    'django.contrib.admin',
+    ...
+  ]
+  ```
+  Ejecutamos dos comandos dentro de la carpeta del proyecto:
+  ```bash
+  # crea un archivo dentro de la carpeta migrations que se enecuentra en polls
+  # donde automaticamente django describe toda la creacion de las tablas en la base de datos,
+  # uso del concepto de ORM, toma esos modelos convirtiendolos en tablas dentro de la db.
+  python3 manage.py makemigrations polls 
+  # ejecutando la migración del archivo hacia la bd.
+  python3 manage.py migrate
+  ```
+
+  Sirve sobre todo al momento de trabajar de forma colaborativa, para poder replicar la estructura creada en otras partes.

@@ -142,3 +142,33 @@ Curso Básico de Django
   Dentro de cada aplicación nueva deben tener un archivo **urls.py** donde contendra una lista de urls que puedan añadir, que a partir de la funcion **include** desde archivo principal por llamarlo que se  encuentra en la carpeta del proyecto se añadira todas las urls de dicha aplicación antes creadas.
 
   Podremos ver nuestro ***"Hello World""** en la siguiente dirección **http://localhost:8000/polls/**.
+
+## Ajustando el archivo settings.py
+  DATABASES: Configuración y conexión a la BD como prederterminado nos coloca **sqlite3** pero tambien podemos usar ***mysql, postgressql,oracle. (Django no soporta bases de datos no relacionales):
+  ```python
+  #dentro del archivo de settings.py
+  DATABASES = {
+    'default': {
+      'ENGINE': 'django.db.backends.sqlite3',
+      'NAME': BASE_DIR / 'db.sqlite3', #sqlite no necesita de otras varibles
+      # otras variables que nos podemos encontrar son
+      'USER':
+      'PASSWORD':
+      #para poder acceder a una base dadatos como mysql o postgres 
+    }
+  }
+
+  # podemos definir nuestra zona horaria, estamos trabajando con zona horaria universal la cual podemos cambiar desde donde nos encontremos.
+  TIME_ZONE = 'UTC'
+
+  #INSTALLED_APPS: Indica cuáles son las aplicaciones instaladas en el proyecto
+  INSTALLED_APPS = [
+    'django.contrib.admin', # Administrador de Django
+    'django.contrib.auth', # Maneja la autenticacion de usuarios
+    'django.contrib.contenttypes', # Maneja formatos de archivos
+    'django.contrib.sessions', # Maneja sesiones de usuarios
+    'django.contrib.messages', # Maneja comunicaciones entre usuarios
+    'django.contrib.staticfiles', # Maneja archivos estaticos (HTML, CSS, JS)
+  ]
+  ```
+  [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)

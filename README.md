@@ -85,3 +85,22 @@ Curso Básico de Django
     - Using settings ‘premiosplatziapp.settings’: Tomar el archivo settings-py, ver la variables de configuración y aplicarlas para tenerlas disponibles al crear el código.
     - Starting development … : Servidor desplegado (iniciado) de manera local en esta dirección **http://127.0.0.1:8000/**.
     - En el archivo de settings.py la opcion de **DEBUG=true** es para funcionamiento local, al momento de enviarlo a producción simplemente cambiamos su valor a **false**.
+
+## Nuestro primer proyecto: Premios Platzi App
+  [Escribiendo tu primera aplicación Django](https://docs.djangoproject.com/en/3.2/intro/tutorial01/)
+  Dentro de Django hay 2 cosas importantes para diferenciar:
+  
+  - Proyecto : Un proyecto es una colección de configuraciones y aplicaciones para un sitio web en particular. Un proyecto puede contener varias aplicaciones. Una aplicación puede estar en varios proyectos.
+
+  - Un proyecto en Django, es un conjunto de aplicaciones. Ejemplo: Instagram es un proyecto de Django, que tiene varias aplicaciones, como:
+    ```bash
+    Feed (donde se cargan las fotos)
+    Stories
+    Messages
+    Etc
+    ```
+  - Apps : Una aplicación es una aplicación web que hace algo, por ejemplo, un sistema de blogs, una base de datos de registros públicos o una pequeña aplicación de encuestas.
+
+  Cada aplicación que escribe en Django consta de un paquete de Python que sigue una determinada convención. Django viene con una utilidad que genera automáticamente la estructura básica de directorios de una aplicación, por lo que puede concentrarse en escribir código en lugar de crear directorios.
+
+  ![](https://static.platzi.com/media/user_upload/Django-file-Structure-46ebc589-0736-4b81-8cba-e97348f2206c.jpg)

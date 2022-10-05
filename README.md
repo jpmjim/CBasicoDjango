@@ -104,3 +104,39 @@ Curso Básico de Django
   Cada aplicación que escribe en Django consta de un paquete de Python que sigue una determinada convención. Django viene con una utilidad que genera automáticamente la estructura básica de directorios de una aplicación, por lo que puede concentrarse en escribir código en lugar de crear directorios.
 
   ![](https://static.platzi.com/media/user_upload/Django-file-Structure-46ebc589-0736-4b81-8cba-e97348f2206c.jpg)
+
+## Nuestro primer proyecto: Premios Platzi App 2
+  - Dentro de nuestro proyecto creamos una aplicación llamado polls:
+  ```bash
+  # dentro de la carpeta del proyecto
+  #comando
+  python3 manage.py startapp nombre_app
+  ```
+
+  - Dentro de la nueva app trabajaremos con el archivo **viwes.py** creando un hola mundo.
+  ```python
+  #dentro del archivo
+  from django.http import HttpResponse 
+  # esta es una clase que permite ejecutar una respuesta http
+
+  #función que recibe una request como parametro
+  def index(request):
+    return HttpResponse("Hello World")
+  ```
+
+  - Para visualizar nuestro hello world en nuestro navegador:
+  ```python
+  #nos movemos dentro de la carpeta del proyectoapp el archivo de urls.py
+  #creamos un nuevo elemento dentro del path
+  path("polls/", include("polls.urls"))
+  ```
+
+  - Dentro de la carpeta de la app polls creamos un archivo **urls.py**.
+  ```python
+  from django.urls import path
+  from . import views
+  urlpatterns = [
+    path("", views.index, name="index")
+  ]
+  ```
+  Dentro de cada aplicación nueva deben tener un archivo **urls.py** donde contendra una lista de urls que puedan añadir, que a partir de la funcion **include** desde archivo principal por llamarlo que se encuentra en la carpeta del proyecto se añadira todas las urls de dicha aplicación antes creadas.

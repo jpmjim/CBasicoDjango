@@ -172,3 +172,14 @@ Curso Básico de Django
   ]
   ```
   [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+## ¿Qué es ORM? ¿Qué es un modelo?
+  Un ORM (Object-Relational Mapping) es una técnica que nos permite crear una Base de Datos Orientada a Objectos (virtual), que opera sobre la Base de Datos Relacional (real).
+
+  Utilizando un ORM podemos operar sobre la base de datos aprovechando las características propias de la orientación a objetos, como herencia y polimorfismo.
+
+  También podemos acceder a los atributos de una Entidad de la misma forma que accedemos a los atributos de una Clase, realizar operaciones para obtener, crear, modificar y eliminar datos, todo desde el código de programación sin tener que escribir SQL.
+
+  Esto además nos permite escribir el código una sola vez y garantizarnos que va a seguir funcionando incluso si en el futuro se cambia el motor de Base de Datos (por ejemplo, de MySQL a Microsoft SQL Server).
+
+  ![](https://static.platzi.com/media/user_upload/Untitled%20%281%29-1d6350c3-b6d5-4752-ae16-2bd4d9210376.jpg)

@@ -183,3 +183,41 @@ Curso Básico de Django
   Esto además nos permite escribir el código una sola vez y garantizarnos que va a seguir funcionando incluso si en el futuro se cambia el motor de Base de Datos (por ejemplo, de MySQL a Microsoft SQL Server).
 
   ![](https://static.platzi.com/media/user_upload/Untitled%20%281%29-1d6350c3-b6d5-4752-ae16-2bd4d9210376.jpg)
+
+## Creando un diagrama entidad-relación para nuestro proyecto
+  En es este ejemplo usaremos una relación de uno a muchos, por que una pregunta va tener muchas opciones.
+  
+  Diagrama entidad relación:
+  - Nuestra tabla **questions** tendra tres atributos o columnas(termininologia de base de datos).
+  ```bash
+    id -----------------int (llave primaria)
+    question_text-------varchar (texto de la pregunta)
+    pub_date------------datetime (fecha de publicacion)
+  ```
+  - En el modelo entidad relación cuando tenemos atributos(columnas) relacionados entre modelos(tablas). Se le colocas FK junto al nombre del atributo en el modelo(tabla) en que está relacionando. Esto significa Llave foránea. No ayuda a identificar las columnas relacionadas al momento de pasarlo a código.
+  
+  - La tabla **choices** sus atributos.
+  ```bash
+    id -------------- int
+    fk_question------ int (llave foranea "el id de una pregunta")
+    choice_text ----- varchar (texto de la opcion)
+    votes ----------- int (va ser un contador)
+  ```
+  Herramienta que podemos usar para el desarrollo de nuestro diagrama [dbdiagram.io](https://dbdiagram.io/home)
+
+  Usando este código:
+  ```bash
+  Table questions {
+    id int [pk, increment]
+    question_text varchar
+    pub_date datetime
+  }
+
+  Table choices {
+    id int [pk, increment]
+    choice_text varchar
+    votes int
+    question int [ref: > questions.id]
+  }
+  ```
+  ![](https://static.platzi.com/media/user_upload/PremiosPlatzi-588f66d0-82e2-461f-a3e6-53a2232bfd14.jpg)

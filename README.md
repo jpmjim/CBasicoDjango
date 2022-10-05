@@ -63,3 +63,25 @@ Curso Básico de Django
   - **asgi.py** y **wsgi.py** es un conjunto de archivos que nos sirve para hacer el deploy el despliegue de nuestra app.
   - **settings.py** es un archivo que contiene toda la información de la configuración del proyecto, (la zona horaria, el lenguaje, las apss internas dentro del proyecto, la base de datos que usamos).
   - **urls.py** es el archivo donde vamos a trabajar las rutas del proyecto, (viene uno ya definido llamado ***admin***).
+
+## El servidor de desarrollo
+  Siempre que crees un proyecto web (Siendo uno mismo el creador) siempre va “vivir” en dos lugares:
+
+  - En local: Entorno de trabajo que creamos y editamos para desarrollar.
+  - En producción, es el servidor (Jamas tocamos el código directamente). 
+  
+  Nos movemos a la carpeta del proyecto.
+  ```bash
+  cd nombreproyecto
+  ```
+  Django nos permite utilizar un servidor (local) de desarrollo. Para ver el servidor local debemos ejecutar el comando: **<code>python3 manage.py runserver</code>**
+
+  Detalle de mensaje:
+
+    - Watching for file … : A cada cambio que hagas en los archivo, Django lo notará y lo reflejará en el servidor.
+    - System check identified no issues … : No hay problemas y se silenciaron 0.
+    - You have 18 unapplied migration(s) … : No se ha creado una base de datos efectiva.
+    - Date, Version Django
+    - Using settings ‘premiosplatziapp.settings’: Tomar el archivo settings-py, ver la variables de configuración y aplicarlas para tenerlas disponibles al crear el código.
+    - Starting development … : Servidor desplegado (iniciado) de manera local en esta dirección **http://127.0.0.1:8000/**.
+    - En el archivo de settings.py la opcion de **DEBUG=true** es para funcionamiento local, al momento de enviarlo a producción simplemente cambiamos su valor a **false**.

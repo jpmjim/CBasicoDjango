@@ -352,3 +352,31 @@ Curso Básico de Django
   ```
 
   Hicimos nuestro primer registro en la DB del proyecto.
+
+## Filtrando los objetos creados desde la consola interactiva
+  Como que con dos metodos especiales que nos brinda django poder hacer busquedas sobre los mismos objetos que vamos creando "drentro de las preguntas".
+
+  [Making queries](https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro)
+
+  Nos movemos a la consola interactiva:
+  ```bash
+  python3 manage.py shell
+  #importamos nuestros modelos 
+  from polls.models import Question, Choice
+  #que objetos de tiṕos questions tenemos creados
+  Question.objects.all()
+
+  #importamos timezone
+  from django.utils import timezone
+  #añadimos algunas preguntas mas
+  Question(question_text="¿Quien es el mejor profesor de Platzi", pub_date=timezone.now()).save()
+  Question(question_text="¿Cual es la mejor escuela de Platzi?", pub_date=timezone.now()).save()
+  ```
+
+  Ahora podemos realizar busquedas dentro de estas preguntas:
+  - Primer metodo que usaremos es **get** es un comando que solo trae un objeto que cumpla con la condición que se especifica en los parametros:
+  ```bash
+  #django me permite traer el dato  que cumpla con la condición establecido en los paremetros 
+  #ejemplo que me traiga la pregunta cuyo identificador id sea igual a 1
+  Question.objects.get(pk=1)
+  ```

@@ -380,3 +380,22 @@ Curso Básico de Django
   #ejemplo que me traiga la pregunta cuyo identificador id sea igual a 1
   Question.objects.get(pk=1)
   ```
+
+## El método filter
+  Para poder hacer la consulta el cual nos devolvera mas de un objeto dentro de la DB debemos utlizar el metodo **filter**, donde django no va buscar por un objeto si no por el conjunto de objetos que cumplan esa condición:
+  ```bash
+  #ejemplo 1 todos los objetos cuya llave primaria sea igual a 1
+  Question.objects.filter(pk=1)
+  #nos trae el objeto en formato de conjunto, en formato de iterable "QuerySet" 
+  <QuerySet [<Question: ¿Cual es mejor curso de Platzi?>]>
+  #al realizar un consulta con parametro que no existe nos devulve un conjunto vacio a diferencia a get que nos da un error
+  Question.objects.filter(pk=1)
+
+  #ejemplo 2 por la fecha de publicacion, un operador especial el doble guion abajo "__" el cual nos permite acceder a atributos internos para poder hacer una busqueda mucho mas extensa sobre los datos.
+  #sobre los datos de tipo fecha el atributo para buscar por año es "year"
+  #traeme todas la preguntas que se publicaron este año, devolviendo nuestras 3 preguntas 
+  Question.objects.filter(pub_date___year=timezone.now().year)
+
+  #ejemplo3 traerme todos las preguntas cuyo question_text comiencen con "¿Cual"
+  Question.objects.filter(question_text__startswith="Cual")
+  ```

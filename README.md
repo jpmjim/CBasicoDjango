@@ -476,3 +476,27 @@ Curso Básico de Django
   ```
 
   Dentro administrador podemos acceder a todas las aplicaciones de forma gráfica como ejemplo a nuestra app de Polls, donde por dentro tenemos nuestras preguntas y respuestas ya antes vistas mediante la consola.
+
+## ¿Qué son las views o vistas?
+  Django al ser un framework de desarrollo web necesita a cierto punto mostrar páginas web, por que una aplicación web es un conjunto de páginas web que podemos ver y poder interactuar dentro de Django vamos a trabajar mediante las **vistas** o **Views**
+
+  ### Diferencia entre MVC y MTV
+  Muy similar a MVC (Modelo, vista, controlador) donde:
+  - Modelo - Hace referencia a todo lo que tiene que ver con bases de datos.
+  - Vista - Con la parte visual.
+  - Controlador - Con toda la parte lógica.
+
+  MTV => MVC:
+
+    Views + Urls => Controller
+    Templates => View
+    Models => Model
+
+  ![](https://static.platzi.com/media/user_upload/Django-73d3c797-4724-493a-b32b-c666ba1cd545.jpg)
+
+  ### En Django siendo MTV
+  - Modelo - Hace referencia a todo lo que tiene que ver con bases de datos (En este caso Django hace demasiada alusión a su nombre donde las bases de datos quedan implícitas y manejamos todo con el ORM)
+
+  - Template - En este caso no debemos confundir el View del MTV con el del MVC puesto en que en Django no hace referencia a lo visual, template si hace alusión con la parte visual de las Web Apps con Django.
+
+  - View - Todo lo relacionado con la lógica es aquí donde entra el tema de las vistas genéricas y demás (Que si solo nos especializamos en el back con Django es lo que mas utilizaremos)

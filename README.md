@@ -399,3 +399,53 @@ Curso Básico de Django
   #ejemplo3 traerme todos las preguntas cuyo question_text comiencen con "¿Cual"
   Question.objects.filter(question_text__startswith="Cual")
   ```
+
+## Accediendo al conjunto de respuestas
+  No tenemos respuestas a nuestras preguntas estan vacias, no existen opciones para darle a elegir al usuario.
+
+  Nos centraremos en las respuestas de cada una de las preguntas.
+  ```bash
+  #traerme una pregunta y guardarla en una variable
+  q = Question.objects.get(pk=1)
+  #revisamos la variable nos devuelve nuestra pregunta
+
+  #como vemos que respuesta tiene la pregunta, acceder al conjunto de respuestas que contiene la pregunta
+  q.choice_set.all()
+
+  #creamos las respuestas apartir de cada una de las preguntas que correspondan
+  #tomando los atributos que pide el choice
+  q.choice_set.create(choice_text="Curso Básico de Python", votes=0)
+  q.choice_set.create(choice_text="Curso de Fundamentos de Ingeniería de Software", votes=0)
+  q.choice_set.create(choice_text="Curso de Elixir", votes=0)
+  #volvemos a ejecutar, tenemos un conjunto de respuestas relacionadas a la pregunta con PK=1 
+  q.choice_set.all()
+  #acceder cuantas respuestas tiene una pregunta, némero exacto
+  q.choice_set.count()
+  #consulta con el metodo filter, el conjunto de respuestas que cumplan  con la condición "cuya fecha de publicación de la pregunta a la que pertenecen tenga un año que sea igual al año actual" obtenemos 3 respuestas.
+  Choice.objects.filter(question__pub_date__year=timezone.now().year)
+  ```
+
+  ### Las formas de crear una Choice (Explicación):
+  Cuando una clase/tabla Choice tiene una llave foranea hacia una clase/tabla Question, existen 2 formas de crear las “choices” de una “question” especifica.
+
+  - La primera forma es crear la choice desde su clase, referenciando referenciando el objeto exacto de la question a la que pertenece. Es decir:
+  ```bash
+  #Primero encontramos el objeto de la question a la que le queremos añadir la choice.
+  my_question = Question.objects.get(pk=1)
+
+  #Luego le pasamos ese objeto a la choice.
+  my_choice = Choice(
+    question_id = my_question,
+    choice_text = "text of my choice"
+  )
+  #OJO: Como dice un compañero, el argumento "votes" no es necesario pasarlo pues ya 	definimos en el modelo de Choice que tendrá un valor predeterminado de 0
+
+  my_choice.save() # Si lo hacemos con esta tecnica es necesario guardar para que los 	cambios se hagan en la db.
+  ```
+
+  - La segunda forma, en teoria consiste en que django tiene una API que nos ayuda a encontrar todas las clases que tienen una relación por llave foranea hacia nuestra clase/tabla X (Es decir, en este caso nosotros podemos acceder a todas las clases conectadas por llave foranea a nuestra clase Question , que en este caso solo tenemos la clase Choice pero podrían ser más). He creado una clase igual a Choice pero llamada OptionalChoice y puedo crear sus objetos de la misma forma en la que el profesor lo hace en el video con la clase Choice, así:
+  ```bash
+  my_question = Question.objects.get(pk=1) #Objeto de la question
+  my_question.optionalquestion_set.create(choice_text = "text of my optional choice")
+  #Recordar que con esta forma de hacer las cosas no es necesario usar el método save().
+  ```

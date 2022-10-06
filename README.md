@@ -299,3 +299,56 @@ Curso Básico de Django
   q.save()
   ```
 
+## El método **__str__**
+  Explorando la varible donde se encuentra nuestra pregunta:
+  ```bash
+  #nos dice que es un Question object 
+  q
+  #accedo a los atributos del objeto, campos definidos
+  q.question.text
+  #nos da un objeto tipo timezone
+  q.pub_date
+  #queryset tiene un elemento
+  Question.objects.all()
+  ```
+
+  El __ str __ es un método para definir el output que van a tener los objetos cuando los llames, de una forma mas detallada. Dentro de nuestras clases definiendo un metodo.
+  ```python
+  #archivo models.py dentro de la carpeta polls
+  #para el metodo Question
+  def __str__(self):
+    return self.question_text
+
+  #que cada vez que invoquemos un objeto de tipo Question lo que queremos que nos muestre es el question.text, el valor del texto que es la pregunta.
+  #para el metodo Choice
+  def __str__(self):
+    return self.choice_text
+  ```
+
+  Metodo personalizado **retornar V o F si la pregunta fue publicada recientemente**:
+  ```python
+  #que una pregunta fue publicada recientemente si tiene un dia maximo de antiguedad 
+  # importamos timezone
+  from django.utils import timezone
+  # importamos modulo datetime nativo de python
+  import datetime
+  #metodo personalizado
+  #la pregunta tiene una duración de 24 horas para concidir con el metodo
+  def was_published_recently(self):
+    return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+  ```
+
+  Despues de editar nuestros modelos siempre ejecutar si es necesario:
+  ```bash
+  # puede no requerir el comando de migrate
+  python3 manage.py makemigrations polls
+  python manage.py migration
+  # regresamos a la consola interactiva
+  python3 manage.py shell
+  #importar modelos
+  from polls.models import Question, Choice
+  #ahora si nos da el valor de una pregunta con el nombre de la pregunta.
+  Question.objects.all()
+  ```
+
+  Hicimos nuestro primer registro en la DB del proyecto.

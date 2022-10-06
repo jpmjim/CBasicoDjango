@@ -263,3 +263,39 @@ Curso Básico de Django
   ```
 
   Sirve sobre todo al momento de trabajar de forma colaborativa, para poder replicar la estructura creada en otras partes.
+
+## La consola interactiva de Django
+  Sabemos que dentro de python tenemos una consola interactiva al cual accedemos con el comando **python3** donde podemos ejecutar lineas de codigo sin la necesidad de crear un archivo y ejecutarlo.
+
+  Comando para acceder a la consola interactiva de Django:
+  ```bash
+  #consola interactiva tenemos acceso al proyecto
+  python3 manage.py shell
+  #nos muestra de esta forma
+  Python 3.10.6 (main, Aug 10 2022, 11:40:04) [GCC 11.3.0] on linux
+  Type "help", "copyright", "credits" or "license" for more information.
+  (InteractiveConsole)
+  ```
+
+  Renombramos nuestro modelo Choices a ***Choice*** lo cual debemos volver a ejecutar los comandos:
+  ```bash
+  # creandose una nueva migracion el archivo de nombre 0002_rename_choices_choice.py
+  python3 manage.py makemigrations polls
+  # aplicamos la migración
+  python3 manage.py migrate
+  ```
+
+  Comandos dentro de la consola interactiva:
+  ```bash
+  #llamado a los modelos dentro de polls
+  from polls.models import Choice, Question
+  #acceder a los atributos, con un conjunto de datos
+  Question.objects.all()
+  #importamos la función timezone para crear objetos de tipo date, antes de crear una pregunta
+  from django.utils import timezone
+  #creamos nuestra pregunta dentro de una variable
+  q = Question(question_text="¿Cual es el mejor curso de Platzi?", pub_date=timezone.now())
+  #para guardar nuestra pregunta
+  q.save()
+  ```
+

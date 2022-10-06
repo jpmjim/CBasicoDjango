@@ -449,3 +449,30 @@ Curso Básico de Django
   my_question.optionalquestion_set.create(choice_text = "text of my optional choice")
   #Recordar que con esta forma de hacer las cosas no es necesario usar el método save().
   ```
+
+## El administrador de Django
+  Una de las ventajas de Django es que posee un administrador de datos de fábrica. La manipulación de datos sin tocar código mediante una interfaz gráfica.
+
+  Nos salimos de nuestra consola interactiva **exit()**.
+
+  Comandos:
+  ```bash
+  # donde definiremos un usuario y contraseña para poder acceder al administrador de Django
+  #ejecutamos el comando
+  python3 manage.py createsuperuser
+  #nos pedira un nombre de usuario, un correo y la contraseña.
+  #al terminar nos moveremos al nevegador a la siguiente dirección
+  http://127.0.0.1:8000/admin/login/?next=/admin/
+  #donde podremos ingresar al administrador, donde tambien podemos acceder con otras cuentas aparte del super usuario  que podamos crear en la consola.
+  ```
+
+  Debemos hacer disponibles a nuestros modelos dentro de administrador, nos diregimos a nuestro archivo de **admin.py** que se encuentra dentro de la carpeta de polls:
+  ```python
+  #importamos el modelo
+  from .models import Choice, Question
+  #resgistramos el modelo dentro del administrador 
+  admin.site.register(Question) #nuestras preguntas
+  admin.site.register(Choice) #las respuestas
+  ```
+
+  Dentro administrador podemos acceder a todas las aplicaciones de forma gráfica como ejemplo a nuestra app de Polls, donde por dentro tenemos nuestras preguntas y respuestas ya antes vistas mediante la consola.

@@ -500,3 +500,11 @@ Curso Básico de Django
   - Template - En este caso no debemos confundir el View del MTV con el del MVC puesto en que en Django no hace referencia a lo visual, template si hace alusión con la parte visual de las Web Apps con Django.
 
   - View - Todo lo relacionado con la lógica es aquí donde entra el tema de las vistas genéricas y demás (Que si solo nos especializamos en el back con Django es lo que mas utilizaremos)
+
+## Creando vistas para la aplicación
+  Ya sabesmo que son las vistas, que una aplicación en Django necesita mostrar páginas web que una página web siempre se correspondra a una vista que se expresara con una una función o una clase.
+
+  Como realizar algunas vistas dentro de nuestro archivo de **viwes.py** que se encuentra de la carpeta de polls y para poder añadirlas debemos trabajar dentro de **urls.py** creando las rutas de cada uno de las vistas.
+  
+  Dentro del archivo podemos encontrar una vista que anterioridad creamos llamado index que es una vista basada en función, las siempre reciben un objeto de tipo http request que al responder muestra una respuesta httprequest en este cado con un string **"hola mundo"**.
+

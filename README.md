@@ -575,4 +575,24 @@ Curso Básico de Django
 
   - [Django shortcut functions](https://docs.djangoproject.com/en/4.0/topics/http/shortcuts/)
 
+## Elevando el error 404
+  - Cuando un usuario no encuentra algo dentro de la página web nosotros devemos elevar un erro http, en este caso el error 404.
+
+  - Una vista en Django es responsable de dos cosas devolver una respuesta http satisfactoria o de devolver un error.
   
+  - HTTP Responses:
+    - 100: Información
+    - 200: Todo salió bien.
+    - 300: Redirección.
+    - 400: Error del usuario
+    - 500: Error del servidor.
+
+  - Personalizar Error 404 puedes hacer lo siguiente:
+    ![](https://static.platzi.com/media/user_upload/404-9d000850-799e-47d6-9afa-2b498fb45420.jpg)
+  - En settings.py debes modificar lo siguiente:
+    ```python
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']
+    ```
+  - Y el archivo debe ir dentro de polls/templates/404.html
+    ![](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20de%202022-02-05%2000-42-19-e60d1449-d121-4b56-89ba-d351ea78a33f.jpg)

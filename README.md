@@ -508,3 +508,31 @@ Curso Básico de Django
   
   Dentro del archivo podemos encontrar una vista que anterioridad creamos llamado index que es una vista basada en función, las siempre reciben un objeto de tipo http request que al responder muestra una respuesta httprequest en este cado con un string **"hola mundo"**.
 
+## Templates de Django
+  Ya tenemos nuestras vistas, ahora pasaremos al frontend las templates para cada una de nuestras vistas ligandolas.
+
+  Para crear las templates o el frontend como quieran llamarlo: 
+  - Debemos irnos a la carpeta de la aplicación donde se este trabajando y creamos una nueva carpeta llamada **templates** 
+  - Dentro de templates creamos una nueva llamada **polls** donde se desarrolla el frontend de la app
+
+  Dentro de Django para poder trabajar con las templates el frontend, es leer toda la estructura del proyecto tomar todas las carpetas templates para al final combinarlas en una sola. Por eso la creación de subdirectorios de cada de una de las aplicaciones.
+
+  Django tiene un lenguaje de programación para trabajar el frontend que se llama **Django Template System** el cual se crea utilizando los simbolos de **{}** llave y de porcentaje **%**.
+
+  - Dentro de nuestro Visual Studio Code instalamos el plugin de [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django). Para poder trabajar con el auto completado.
+  - Para la parte de html dentro de Django, presionamos las teclas de **<kbd>control</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>**, buscamos settings.json elegimos la option de **Open Settings(JSON)** un <kbd>enter</kbd> y abrimos el archivo para poder editarlo:
+  ```json
+  # dentro settings.json
+  # añadimos las siguientes lineas para el autocompletado de html dentro de django-html
+  {
+    "emmet.includeLanguages": {
+      "django-html": "html"
+    },
+  }
+  ```
+  - Y estando dentro de una template de Django podremos trabajar cada uno de las vistas usando html para el desarrollo de frontend:
+  ```python
+  {% if latest_question_list %}
+    <ul></ul>
+  {% endif %}
+  ```

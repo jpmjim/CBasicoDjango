@@ -596,3 +596,11 @@ Curso Básico de Django
     ```
   - Y el archivo debe ir dentro de polls/templates/404.html
     ![](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20de%202022-02-05%2000-42-19-e60d1449-d121-4b56-89ba-d351ea78a33f.jpg)
+
+## Utilizando la etiqueta url para evitar el hard coding
+  - Dentro de nuestra archivo de **index.html** existe una inconsistencia, es que nunca deberiamos ***hard codear*** un valor "de darle un valor exacto a algo que puede cambiar en el tiempo":
+  - En nuestro link de **href** donde estamos especificando una dirección estatica, el cual más adelante podemos cambiar alguna otra.
+  - Para poder evitar esto debemos a empezar modularizar el código y cambiar el mal hard coding que se escribio.
+
+  - [El lenguaje de plantillas de Django](https://docs.djangoproject.com/en/4.0/ref/templates/language/)
+  - [Etiquetas y filtros de plantilla incorporados](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/)

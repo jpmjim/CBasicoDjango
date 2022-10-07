@@ -521,7 +521,7 @@ Curso Básico de Django
 
   - Dentro de nuestro Visual Studio Code instalamos el plugin de [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django). Para poder trabajar con el auto completado.
   - Para la parte de html dentro de Django, presionamos las teclas de **<kbd>control</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>**, buscamos settings.json elegimos la option de **Open Settings(JSON)** un <kbd>enter</kbd> y abrimos el archivo para poder editarlo:
-  ```json
+  ```bash
   # dentro settings.json
   # añadimos las siguientes lineas para el autocompletado de html dentro de django-html
   {
@@ -536,3 +536,43 @@ Curso Básico de Django
     <ul></ul>
   {% endif %}
   ```
+
+## Creando el template del home
+  - Comenzaremos por nuestro **home**, la vista del index el archivo de ***index.html*** que se encuentra en **polls/templates/polls** mostrandonos una lista de las preguntas que tenemos.
+    ```bash
+    #template
+    {% if latest_question_list %}
+      <ul>
+      {% for question in latest_question_list  %}
+        <li><a href="/polls/{{ question.id }}">{{ question.question_text }}</a></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No polls are available.</p>
+    {% endif %}
+    ```
+  - Y dentro de nuestras vistas:
+    ```bash
+    #view index
+    def index(request):
+      latest_question_list = Question.objects.all()
+      return render(request, "polls/index.html", {
+        "latest_question_list": latest_question_list
+      })
+    ```
+  - El render es una función importada de Django. Necesita tres parámetros
+    - El request
+    - La ubicación de la template correlacionada. En la ruta se omite la carpeta /template/ ya que Django junta todas las carpetas templates de todas las aplicaciones de nuestro proyecto y las hace una sola
+    - Un objeto con la o las variables que le estaremos pasando a nuestra template.
+  
+  - Puede recibir más parametros, es un shortcut functions de Django, en este documento cortico encontrarás toda la información valiosa para entender el funcionamiento más a profundidad, espero sea de ayuda. Allí se tratan 4 puntos importantes:
+    - render()
+    - redirect()
+    - get_object_or_404()
+    - get_list_or_404()
+  
+  - Django, al igual que FastAPI y Flask usan un lenguaje de templates llamado Jinja( la sintaxis {%%}, {{}}, etc, que menciona), [aquí](https://jinja.palletsprojects.com/en/3.0.x/templates/) les dejo la documentación completa.
+
+  - [Django shortcut functions](https://docs.djangoproject.com/en/4.0/topics/http/shortcuts/)
+
+  

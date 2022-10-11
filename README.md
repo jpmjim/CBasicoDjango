@@ -612,3 +612,6 @@ Curso Básico de Django
 
 ## Creando la vista vote
   El contador de votos para cada uno de las preguntas de sus opciones.
+
+## Creando la vista results
+  Visualizar la vista de resultados cuantos votos tienes cada uno de las opciones que tiene la pregunta.

@@ -610,3 +610,5 @@ Curso Básico de Django
 
   Nos centraremos en nuestro archivo de ***detail.html*** para tenerlo de manera funcional.
 
+## Creando la vista vote
+  El contador de votos para cada uno de las preguntas de sus opciones.

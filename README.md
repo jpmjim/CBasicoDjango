@@ -626,3 +626,6 @@ Curso Básico de Django
   - **LoginView** y **LogoutView** la vista que permite a los usuarios loguearse o salir.
   - **CreateView** **UpdateView** para edición de registros dentro de la BD como perfil. 
   - [Lista de Classy Class-Based Views](https://ccbv.co.uk/)
+
+## Implementando generic views en la aplicación
+  Dentro de nuestro archivo de **view.py** utilizaremos las "vistas basadas en clases".

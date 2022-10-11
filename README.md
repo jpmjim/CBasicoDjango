@@ -606,7 +606,7 @@ Curso Básico de Django
   - [Etiquetas y filtros de plantilla incorporados](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/)
 
 ## Formularios: lo básico
-  Es uno de los conceptos fundamentales que deberia saber un **backend developer en python**, los formularios es campos los cuales deben ser rellenados por el usuario, tales datos seran procesados para el debido guardadp en la base de datos.
+  Es uno de los conceptos fundamentales que deberia saber un **backend developer en python**, los formularios es campos los cuales deben ser rellenados por el usuario, tales datos seran procesados para el debido guardadp en la base de dato"s.
 
   Nos centraremos en nuestro archivo de ***detail.html*** para tenerlo de manera funcional.
 
@@ -615,3 +615,14 @@ Curso Básico de Django
 
 ## Creando la vista results
   Visualizar la vista de resultados cuantos votos tienes cada uno de las opciones que tiene la pregunta.
+
+## Generic Views o Class Based Views
+  El principio de **Don’t Repeat Yourself**, por ejemplo que tenemos dentro de nuestro archivo de ***views.py*** con las funciones de "detail y results" que tienen la misma estructura rompiendo con el principio de no repetir.
+
+  Las vistas basadas en clases utilizan atributos, a diferencia view function que utilizan parametros. Ademas de tener metodos que te ayudan segun tu desarrollo.
+
+  Dentro de django tenemos muchas posibilidades que vienen de base como:
+  - **ListView** que esta diseñada para traer varios elementos de la BD renderizar un templa y mostrarlo
+  - **LoginView** y **LogoutView** la vista que permite a los usuarios loguearse o salir.
+  - **CreateView** **UpdateView** para edición de registros dentro de la BD como perfil. 
+  - [Lista de Classy Class-Based Views](https://ccbv.co.uk/)

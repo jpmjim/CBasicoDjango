@@ -604,3 +604,9 @@ Curso Básico de Django
 
   - [El lenguaje de plantillas de Django](https://docs.djangoproject.com/en/4.0/ref/templates/language/)
   - [Etiquetas y filtros de plantilla incorporados](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/)
+
+## Formularios: lo básico
+  Es uno de los conceptos fundamentales que deberia saber un **backend developer en python**, los formularios es campos los cuales deben ser rellenados por el usuario, tales datos seran procesados para el debido guardadp en la base de datos.
+
+  Nos centraremos en nuestro archivo de ***detail.html*** para tenerlo de manera funcional.
+
